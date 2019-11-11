@@ -1,1 +1,1 @@
-# TheMerchantsTradePrototype
+# GD II PROTOTYPE
