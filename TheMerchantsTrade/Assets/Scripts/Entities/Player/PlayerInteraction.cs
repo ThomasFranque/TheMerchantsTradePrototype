@@ -1,67 +1,68 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-	[SerializeField]
-	private float maxRange;
-	[SerializeField]
-	private string npcTag;
-	NPC _npcInRangeScript;
+    [SerializeField]
+    private float maxRange = default;
+    [SerializeField]
+    private string npcTag = default;
 
-	private void Start()
-	{
-		_npcInRangeScript = null;
-	}
+    NPC _npcInRangeScript;
+    RaycastHit _interactionLineHit;
 
-	private void FixedUpdate()
-	{
-		UpdateInteractionRay();
-	}
+    public bool HasNpcInRange
+    {
+        get => _interactionLineHit.distance <= maxRange - 0.02f &&
+            _interactionLineHit.distance >= 0.1f;
+    }
 
-	private void UpdateInteractionRay()
-	{
-		RaycastHit hit;
+    private void Start()
+    {
+        _npcInRangeScript = default;
+        _interactionLineHit = default;
+    }
 
-		if (Physics.Raycast(transform.position, transform.forward, out hit, maxRange))
-		{
-			if (_npcInRangeScript == null)
-			{
-				if (hit.collider.gameObject.tag == npcTag)
-				{
-					_npcInRangeScript = hit.collider.GetComponent<NPC>();
-					_npcInRangeScript.InRange();
+    private void Update()
+    {
+        UpdateInteractionRay();
+    }
 
-				}
-			}
-		}
-		else
-		{
-			if (_npcInRangeScript != null)
-			{
-				_npcInRangeScript.NoLongerInRange();
-				_npcInRangeScript = null;
+    private void UpdateInteractionRay()
+    {
+        if (Physics.Raycast(transform.position, transform.forward, out _interactionLineHit, maxRange))
+        {
+            if (HasNpcInRange)
+            {
+                if ((_npcInRangeScript == null || _npcInRangeScript.gameObject != _interactionLineHit.collider.gameObject) &&
+                    _interactionLineHit.collider.tag == npcTag)
+                {
+                    if (_npcInRangeScript != null) _npcInRangeScript.NoLongerInRange();
 
-			}
-		}
+                    _npcInRangeScript = _interactionLineHit.collider.GetComponent<NPC>();
+                    _npcInRangeScript.InRange();
+                }
 
-		if (_npcInRangeScript != null)
-		{
-			if (Input.GetKeyDown(KeyCode.E))
-				InteractWith(hit);
-		}
-	}
+                if (Input.GetKeyDown(KeyCode.E))
+                    InteractWith(_interactionLineHit.collider.gameObject);
+            }
+        }
 
-	private void InteractWith(RaycastHit hit)
-	{
-		_npcInRangeScript.Interact();
-	}
+        else if (_npcInRangeScript != null)
+        {
+            _npcInRangeScript.NoLongerInRange();
+            _npcInRangeScript = null;
+        }
+    }
 
-	private void OnDrawGizmosSelected()
-	{
-		// Draws a blue line from this transform to the target
-		Gizmos.color = Color.blue;
-		Gizmos.DrawRay(transform.position, transform.forward);
-	}
+    private void InteractWith(GameObject gameObject)
+    {
+        _npcInRangeScript.Interact();
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        // Draws a blue line from this transform to the target
+        Gizmos.color = Color.blue;
+        Gizmos.DrawRay(transform.position, transform.forward);
+    }
 }

@@ -4,40 +4,33 @@ using UnityEngine;
 
 public class LabRat : NPC
 {
-	private bool playerInRange;
+	private bool _isPlayerInRange;
 
 	public void Start()
 	{
-		playerInRange = false;
+        _isPlayerInRange = default;
 	}
+
+    private void Update()
+    {
+
+    }
 
 	public override void InRange()
 	{
-		transform.position = new Vector3
-			(
-			transform.position.x,
-			transform.position.y + 1.0f,
-			transform.position.z
-			);
-
-		playerInRange = true;
+        Debug.Log($"<{name}> is in range");
+        _isPlayerInRange = true;
 	}
 
 	public override void NoLongerInRange()
 	{
 
-		transform.position = new Vector3
-			(
-			transform.position.x,
-			transform.position.y - 1.0f,
-			transform.position.z
-			);
-
-		playerInRange = false;
+        Debug.Log($"<{name}> is no longer in range");
+        _isPlayerInRange = false;
 	}
 
 	public override void Interact()
 	{
-		Debug.Log(name);
+		Debug.Log($"Interacted with <{name}>");
 	}
 }
