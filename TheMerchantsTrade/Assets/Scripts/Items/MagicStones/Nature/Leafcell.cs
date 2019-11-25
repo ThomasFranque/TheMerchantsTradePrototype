@@ -5,7 +5,7 @@
 	public override string Description { get; }
 	public override string CustomName { get; }
 
-	public BurnedZima(int basePrice) : base(basePrice)
+	public Leafcell(int basePrice) : base(basePrice)
 	{
 		StoneType = StoneType.Nature;
 
