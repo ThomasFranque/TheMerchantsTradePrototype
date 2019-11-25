@@ -2,12 +2,9 @@
 {
 	public abstract StoneType StoneType { get; }
 	public override ItemCategory Category { get; }
-	public override int BasePrice { get; }
 
-
-	public MagicStone(int basePrice)
+	public MagicStone(int basePrice) : base (basePrice)
 	{
 		Category = ItemCategory.MagicStone;
-		BasePrice = basePrice;
 	}
 }

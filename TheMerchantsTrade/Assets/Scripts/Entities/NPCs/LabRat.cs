@@ -4,34 +4,6 @@ using UnityEngine;
 
 public class LabRat : NPC
 {
-	private bool _isPlayerInRange;
-
-	private List<Collectable> _inventory;
-
-	public void Start()
-	{
-		_inventory = new List<Collectable>();
-		_isPlayerInRange = default;
-
-		// THIS WILL BE ADDED ON THE NPC.CS ONLY HERE FOR DEBUG
-		_inventory.Add(new RustySword(25));
-		_inventory.Add(new Firecell(25));
-
-		foreach (Collectable c in _inventory)
-		{
-			Debug.LogWarning("Name: " + c.CustomName);
-			Debug.Log("Rarity: Tier " + c.RarityTier + ", " + c.Rarity);
-			Debug.Log("Base Price: " + c.BasePrice);
-			Debug.Log("Final Price: " + c.FinalPrice);
-		}
-		// #####################################################
-	}
-
-    private void Update()
-    {
-
-    }
-
 	public override void InRange()
 	{
         Debug.Log($"<{name}> is in range");

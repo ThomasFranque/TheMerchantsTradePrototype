@@ -2,12 +2,10 @@
 {
 	public abstract WarGearType GearType { get; }
 	public override ItemCategory Category { get; }
-	public override int BasePrice { get; }
 
 
-	public WarItem(int basePrice)
+	public WarItem(int basePrice) : base(basePrice)
 	{
 		Category = ItemCategory.WarGear;
-		BasePrice = basePrice;
 	}
 }
