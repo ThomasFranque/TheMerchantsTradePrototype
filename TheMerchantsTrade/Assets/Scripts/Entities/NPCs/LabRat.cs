@@ -4,40 +4,49 @@ using UnityEngine;
 
 public class LabRat : NPC
 {
-	private bool playerInRange;
+	private bool _isPlayerInRange;
+
+	private List<Collectable> _inventory;
 
 	public void Start()
 	{
-		playerInRange = false;
+		_inventory = new List<Collectable>();
+		_isPlayerInRange = default;
+
+		// THIS WILL BE ADDED ON THE NPC.CS ONLY HERE FOR DEBUG
+		_inventory.Add(new RustySword(25));
+		_inventory.Add(new Firecell(25));
+
+		foreach (Collectable c in _inventory)
+		{
+			Debug.LogWarning("Name: " + c.CustomName);
+			Debug.Log("Rarity: Tier " + c.RarityTier + ", " + c.Rarity);
+			Debug.Log("Base Price: " + c.BasePrice);
+			Debug.Log("Final Price: " + c.FinalPrice);
+		}
+		// #####################################################
 	}
+
+    private void Update()
+    {
+
+    }
 
 	public override void InRange()
 	{
-		transform.position = new Vector3
-			(
-			transform.position.x,
-			transform.position.y + 1.0f,
-			transform.position.z
-			);
-
-		playerInRange = true;
+        Debug.Log($"<{name}> is in range");
+        _isPlayerInRange = true;
 	}
 
 	public override void NoLongerInRange()
 	{
 
-		transform.position = new Vector3
-			(
-			transform.position.x,
-			transform.position.y - 1.0f,
-			transform.position.z
-			);
-
-		playerInRange = false;
+        Debug.Log($"<{name}> is no longer in range");
+        _isPlayerInRange = false;
 	}
 
 	public override void Interact()
 	{
-		Debug.Log(name);
+		Debug.Log($"Interacted with <{name}>");
 	}
 }
