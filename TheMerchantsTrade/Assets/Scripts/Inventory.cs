@@ -10,15 +10,15 @@ public class Inventory
 		Items = new List<Collectable>();
 	}
 
-	// FIX ADD NOT WORKING
 	public void AddItem(Collectable item)
 	{
 		bool wasAdded = false;
+			
 		foreach (Collectable c in Items)
 		{
 			wasAdded = false;
 
-			if (c.Equals(item) && c != null)
+			if (c.Equals(item))
 			{
 				c.Ammount++;
 				wasAdded = true;
@@ -29,5 +29,6 @@ public class Inventory
 		if (!wasAdded)
 			Items.Add(item);
 	}
+
 }
 

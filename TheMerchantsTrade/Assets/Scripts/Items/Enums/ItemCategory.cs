@@ -6,6 +6,6 @@ public enum ItemCategory
 {
 	WarGear,
 	MagicStone,
-	TradeItem,
+	CommonItem,
 	UtilityItem
 }

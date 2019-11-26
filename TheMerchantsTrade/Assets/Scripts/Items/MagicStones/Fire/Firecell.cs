@@ -11,7 +11,7 @@
 
 		Rarity = TradeHandler.GetRandomRarity(3);
 
-		Description = "A plain old rusty sword.\n" +
+		Description = "A seemingly innactive magical fire stone.\n" +
 			"Maybe a Fire Wizard can find some use for it.";
 
 		CustomName = "Firecell Stone";

@@ -11,27 +11,31 @@ public class UIItemRow : MonoBehaviour
 	[SerializeField]
 	private TextMeshProUGUI _itemNameTxt;
 	[SerializeField]
+	private TextMeshProUGUI _itemRarityTxt;
+	[SerializeField]
 	private TextMeshProUGUI _flavorTextTxt;
 	[SerializeField]
 	private TextMeshProUGUI _ammountTxt;
 
-    public string Name { get; private set; }
-    public string FlavorText { get; private set; }
-    public int Ammount { get; private set; }
+	public Collectable ItemScript { get; private set; }
+	private string customName;
+	private string flavorText;
+	private int ammount;
 
 	private void Start()
 	{
 
 	}
 
-	public void InitializeItemRow(Image itemImg, string name, string flavorTxt, int ammount)
+	public void InitializeItemRow(Collectable c)
 	{
-		_itemImage = itemImg;
-		Ammount = ammount;
 
-		_flavorTextTxt.text = FlavorText = flavorTxt;
-		_itemNameTxt.text = Name = name;
-		_ammountTxt.text = Ammount.ToString();
+		_flavorTextTxt.text = flavorText = c.Description;
+		_itemNameTxt.text = name = customName = c.CustomName;
+		_itemRarityTxt.text = c.Rarity.ToString();
+
+		ammount = c.Ammount;
+		_ammountTxt.text = ammount.ToString();
 	}
 
 }

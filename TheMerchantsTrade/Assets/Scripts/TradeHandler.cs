@@ -82,7 +82,6 @@ public static class TradeHandler
 		Inventory inventory;
 		inventory = new Inventory();
 
-
 		for (int i = 0; i < ammount; i++)
 			inventory.AddItem(GetRandomItem());
 
@@ -182,7 +181,7 @@ public static class TradeHandler
 		}
 
 		if (item == null)
-			item = new RustySword(Random.Range(0, 20));
+			item = new RustySword(Random.Range(5, 20));
 
 		return item;
 	}
@@ -198,7 +197,7 @@ public static class TradeHandler
 				if (warType != null)
 				{
 					if (warType == WarGearType.Sword)
-						collect = new RustySword(Random.Range(0, 20));
+						collect = new RustySword(Random.Range(5, 20));
 					else if (warType == WarGearType.Shield)
 						Debug.Log("new RustyShield(Random.Range(0, 20))");
 					else if (warType == WarGearType.Bow)

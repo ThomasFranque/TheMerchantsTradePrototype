@@ -19,6 +19,8 @@ public class LabRat : NPC
 
 	public override void Interact()
 	{
+		base.Interact();
+
 		Debug.Log($"Interacted with <{name}>");
 	}
 }

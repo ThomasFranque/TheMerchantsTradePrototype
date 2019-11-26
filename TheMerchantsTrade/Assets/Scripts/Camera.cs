@@ -31,13 +31,24 @@ public class Camera : MonoBehaviour
 
 	private void Update()
 	{
+		if (!Player.instance.isInteracting)
+			UpdateInput();
+	}
+
+	private void LateUpdate()
+	{
+		UpdateCamera();
+	}
+
+	private void UpdateInput()
+	{
 		currentX += Input.GetAxis("Mouse X") * sensitivityX;
 		currentY += Input.GetAxis("Mouse Y") * sensitivityY;
 
 		currentY = Mathf.Clamp(currentY, Y_ANGLE_MIN, Y_ANGLE_MAX);
 	}
 
-	private void LateUpdate()
+	private void UpdateCamera()
 	{
 		Vector3 dir = new Vector3(0, 0, distance);
 		Vector3 offset = new Vector3(offsetX, offsetY, 0);

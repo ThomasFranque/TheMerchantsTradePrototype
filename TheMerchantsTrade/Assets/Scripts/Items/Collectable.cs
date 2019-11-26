@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Collectable : MonoBehaviour
+public abstract class Collectable : IEquatable<Collectable>
 {
 	public abstract Rarity Rarity { get; }
 	public abstract ItemCategory Category { get; }
@@ -27,20 +27,6 @@ public abstract class Collectable : MonoBehaviour
 		BasePrice = basePrice;
 	}
 
-	public override bool Equals(object other)
-	{
-		Collectable otherAsColl = other as Collectable;
-
-		if (other == null) return false;
-
-		return GetHashCode() == otherAsColl.GetHashCode();
-	}
-
-	public override int GetHashCode()
-	{
-		return CustomName.GetHashCode() ^ Rarity.GetHashCode();
-	}
-
 	public override string ToString()
 	{
 		return 
@@ -49,5 +35,10 @@ public abstract class Collectable : MonoBehaviour
 			"Base Price: " + BasePrice + "\n" +
 			"Final Price: " + FinalPrice + "\n" +
 			"Ammount: " + Ammount;
+	}
+
+	public bool Equals(Collectable other)
+	{
+		return CustomName.Equals(other.CustomName) && Rarity.Equals(other.Rarity);
 	}
 }
