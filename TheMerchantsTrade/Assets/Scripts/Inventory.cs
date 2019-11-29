@@ -1,13 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 public class Inventory
 {
 	public ICollection<Collectable> Items { get; private set; }
 
+	public int Coin { get; private set; }
+	public int Gems { get; private set; }
+
 	public Inventory()
 	{
 		Items = new List<Collectable>();
+
+		Coin = GameInfo.START_COIN;
+		Gems = GameInfo.START_GEM;
 	}
 
 	public void AddItem(Collectable item)

@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
 			UpdateAccelaration();
 			UpdateVelocity();
 			UpdatePosition();
-			#endregion}
+			#endregion
 		}
 	}
 

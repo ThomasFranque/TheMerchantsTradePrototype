@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class LabRat : NPC
 {
@@ -22,5 +20,7 @@ public class LabRat : NPC
 		base.Interact();
 
 		Debug.Log($"Interacted with <{name}>");
+		foreach (Collectable c in _inventory.Items)
+			Debug.Log(c);
 	}
 }

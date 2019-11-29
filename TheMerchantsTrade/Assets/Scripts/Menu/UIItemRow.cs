@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
@@ -21,11 +19,6 @@ public class UIItemRow : MonoBehaviour
 	private string customName;
 	private string flavorText;
 	private int ammount;
-
-	private void Start()
-	{
-
-	}
 
 	public void InitializeItemRow(Collectable c)
 	{

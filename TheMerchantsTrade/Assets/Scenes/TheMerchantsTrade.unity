@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fc575dc033e2234a978092bedb11b9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tradeMenuPrefab: {fileID: 5033551807867853946, guid: 4c8ca77d983c9254a8b096049a5e6aa6,
+  tradeMenuPrefab: {fileID: 1141379944824379634, guid: bd6aff2fa83616241ba120599e2d9a60,
     type: 3}
 --- !u!1 &256282788
 GameObject:

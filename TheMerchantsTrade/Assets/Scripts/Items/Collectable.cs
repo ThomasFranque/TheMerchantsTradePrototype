@@ -1,19 +1,21 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Collectable : IEquatable<Collectable>
 {
+	[SerializeField]
+	private Sprite itemImage;
+
 	public abstract Rarity Rarity { get; }
 	public abstract ItemCategory Category { get; }
 	public abstract string Description { get; }
 	public abstract string CustomName { get; }
-
 	public int BasePrice { get; set; }
 	public byte Ammount { get; set; }
 
+	public Sprite ItemImage { get => itemImage; }
 	public byte RarityTier => TradeHandler.GetRarityTier(Rarity);
+
 	public int FinalPrice
 	{
 		get => Mathf.RoundToInt(
