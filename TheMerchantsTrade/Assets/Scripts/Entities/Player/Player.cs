@@ -6,6 +6,12 @@ public class Player : MonoBehaviour
 {
 	public static Player instance;
 
+	public Inventory Inventory { get; private set; }
+
+	public int Coin => Inventory.Currency.Coin;
+	public int Gems => Inventory.Currency.Gems;
+	public int TotalCurrencyValue => Inventory.Currency.TotalCurrencyValue;
+
 	#region Interaction Variables
 	public bool isInteracting { get; set; }
 	#endregion
@@ -48,6 +54,8 @@ public class Player : MonoBehaviour
 	{
 		isInteracting = false;
 
+		Inventory = new Inventory(GameInfo.START_COIN + 99999, GameInfo.START_GEM);
+
 		#region movement
 		_controller = GetComponent<CharacterController>();
 		_velocityFactor = WALK_VELOCITY_FACTOR;
@@ -80,6 +88,21 @@ public class Player : MonoBehaviour
 			UpdatePosition();
 			#endregion
 		}
+	}
+
+	public void BuyItem(Collectable item, int coin = 0, int gems = 0)
+	{
+		Inventory.BuyItem(item, coin, gems);
+	}
+
+	public virtual void SellItem(Collectable item, int coin, int gems = 0)
+	{
+		Inventory.SellItem(item, coin, gems);
+	}
+
+	public void RefreshInventory()
+	{
+		Inventory.Refresh();
 	}
 
 	#region Interaction

@@ -43,8 +43,8 @@ public class PlayerInteraction : MonoBehaviour
                 }
 
                 if (Input.GetKeyDown(KeyCode.E))
-                    InteractWith(_interactionLineHit.collider.gameObject);
-            }
+					InteractWith(_interactionLineHit.collider.gameObject);				
+			}
         }
 
         else if (_npcInRangeScript != null)

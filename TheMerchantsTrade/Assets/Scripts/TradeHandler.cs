@@ -81,7 +81,7 @@ public static class TradeHandler
 	public static Inventory GetRandomItemInventory(int ammount)
 	{
 		Inventory inventory;
-		inventory = new Inventory();
+		inventory = new Inventory(Random.Range(200, 500), Random.Range(5, 100));
 
 		for (int i = 0; i < ammount; i++)
 			inventory.AddItem(GetRandomItem());
@@ -204,64 +204,64 @@ public static class TradeHandler
 					if (warType == WarGearType.Sword)
 						collect = new RustySword(Random.Range(5, 20));
 					else if (warType == WarGearType.Shield)
-						collect = new RustyShield(Random.Range(0, 20));
+						collect = new RustyShield(Random.Range(3, 15));
 					else if (warType == WarGearType.Bow)
-						collect = new StickAndString(Random.Range(0, 20));
+						collect = new StickAndString(Random.Range(4, 17));
 				}
 				else if (stoneType != null)
 				{
 					if (stoneType == StoneType.Fire)
-						collect = new Firecell(Random.Range(0, 20));
+						collect = new Firecell(Random.Range(8, 23));
 					else if (stoneType == StoneType.Nature)
-						collect = new Leafcell(Random.Range(0, 20));
+						collect = new Leafcell(Random.Range(8, 23));
 					else if (stoneType == StoneType.Necromancy)
-						collect = new Bloodcell(Random.Range(0, 20));
+						collect = new Bloodcell(Random.Range(8, 23));
 					else if (stoneType == StoneType.Water)
-						collect = new Watercell(Random.Range(0, 20));
+						collect = new Watercell(Random.Range(8, 23));
 				}
 				break;
 			case 2:
 				if (warType != null)
 				{
 					if (warType == WarGearType.Sword)
-						collect = new ShinySword(Random.Range(0, 20));
+						collect = new ShinySword(Random.Range(30, 75));
 					else if (warType == WarGearType.Shield)
-						collect = new ShinyShield(Random.Range(0, 20));
+						collect = new ShinyShield(Random.Range(20, 55));
 					else if (warType == WarGearType.Bow)
-						collect = new WellCraftedBow(Random.Range(0, 20));
+						collect = new WellCraftedBow(Random.Range(16, 47));
 				}
 				else if (stoneType != null)
 				{
 					if (stoneType == StoneType.Fire)
-						collect = new Burnedzima(Random.Range(0, 20));
+						collect = new Burnedzima(Random.Range(40, 80));
 					else if (stoneType == StoneType.Nature)
-						collect = new Naturezima(Random.Range(0, 20));
+						collect = new Naturezima(Random.Range(40, 80));
 					else if (stoneType == StoneType.Necromancy)
-						collect = new Necrozima(Random.Range(0, 20));
+						collect = new Necrozima(Random.Range(40, 80));
 					else if (stoneType == StoneType.Water)
-						collect = new Moisterzima(Random.Range(0, 20));
+						collect = new Moisterzima(Random.Range(40, 80));
 				}
 				break;
 			case 3:
 				if (warType != null)
 				{
 					if (warType == WarGearType.Sword)
-						collect = new DivineSword(Random.Range(0, 20));
+						collect = new DivineSword(Random.Range(60, 210));
 					else if (warType == WarGearType.Shield)
-						collect = new DivineShield(Random.Range(0, 20));
+						collect = new DivineShield(Random.Range(50, 180));
 					else if (warType == WarGearType.Bow)
-						collect = new DivineBow(Random.Range(0, 20));
+						collect = new DivineBow(Random.Range(40, 155));
 				}
 				else if (stoneType != null)
 				{
 					if (stoneType == StoneType.Fire)
-						collect = new LavaStone(Random.Range(0, 20));
+						collect = new LavaStone(Random.Range(100, 300));
 					else if (stoneType == StoneType.Nature)
-						collect = new NatureStone(Random.Range(0, 20));
+						collect = new NatureStone(Random.Range(100, 300));
 					else if (stoneType == StoneType.Necromancy)
-						collect = new LifeStone(Random.Range(0, 20));
+						collect = new LifeStone(Random.Range(100, 300));
 					else if (stoneType == StoneType.Water)
-						collect = new DepthStone(Random.Range(0, 20));
+						collect = new DepthStone(Random.Range(100, 300));
 				}
 				break;
 		}

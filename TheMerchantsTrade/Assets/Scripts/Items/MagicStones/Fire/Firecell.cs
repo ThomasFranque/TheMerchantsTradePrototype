@@ -9,7 +9,7 @@
 	{
 		StoneType = StoneType.Fire;
 
-		Rarity = TradeHandler.GetRandomRarity(3);
+		Rarity = TradeHandler.GetRandomRarity(1);
 
 		Description = "A seemingly innactive magical fire stone.\n" +
 			"Maybe a Fire Wizard can find some use for it.";

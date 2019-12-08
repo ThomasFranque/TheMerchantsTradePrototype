@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-
-public static class GameInfo
+﻿public static class GameInfo
 {
 	public const int START_COIN = 35;
-	public const int START_GEM	= 1;
+	public const int START_GEM	= 0;
 
 	// RARITY INFO
 	// Tier 1
