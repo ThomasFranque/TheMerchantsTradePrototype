@@ -1,11 +1,11 @@
-﻿public class BurnedZima : MagicStone
+﻿public class Burnedzima : MagicStone
 {
 	public override StoneType StoneType { get; }
 	public override Rarity Rarity { get; }
 	public override string Description { get; }
 	public override string CustomName { get; }
 
-	public BurnedZima(int basePrice) : base(basePrice)
+	public Burnedzima(int basePrice) : base(basePrice)
 	{
 		StoneType = StoneType.Fire;
 

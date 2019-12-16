@@ -1,4 +1,7 @@
-﻿public enum StoneType
+﻿using System;
+
+[Flags]
+public enum StoneType
 {
 	Necromancy,
 	Nature,
